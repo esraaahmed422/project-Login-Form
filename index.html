@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+        <title> LogIn </title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        
+        <div class="wrapper">
+            <div class="container"> 
+
+                <div class="sign-up-container">
+                    <form>
+                        <h1>Create An Account</h1>
+                        <span>or use email for registation</span>
+                        <input type="text" placeholder="Enter Your Name">
+                        <input type="email" placeholder="Enter Your Email">
+                        <input type="password" placeholder="Enter Your Password">
+                        <input type="password" placeholder="Confirm Your Password">
+                        <p>already have an account? <a href="#">register new</a></p>
+
+                        <div class="social-links">
+                            <div>
+                                <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                            </div>
+                            <div>
+                                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                            </div>
+                            <div>
+                                <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="sign-in-container">
+                    <form>
+                        <h1>Login Form</h1>
+                        <span>or use your account</span>
+                        <input type="email" placeholder="Email">
+                        <input type="password" placeholder="Password">
+                        <p>don't have an account? <a href="#">register new</a></p>
+                        <div class="social-links">
+                            <div>
+                                <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                            </div>
+                            <div>
+                                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                            </div>
+                            <div>
+                                <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                        <button class="form_btn">Login Now</button>
+                    </form>
+                </div>
+
+                <div class="overlay-container">
+                    <div class="overlay-left">
+                        <h1>Welcome Back</h1>
+                        <p>To keep connected with us please login with your perdonal info</p>
+                        <button id="signIn" class="overlay_btn">Sign In</button>
+                    </div>
+                    <div class="overlay-right">
+                        <h1>Hello Dear</h1>
+                        <p>Enter your personal detalis </p>
+                        <button id="signUp" class="overlay_btn">Sign Up</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            
+            const signUpBtn = document.getElementById("signUp");
+            const signInBtn = document.getElementById("signIn");
+            const container = document.querySelector(".container");
+
+            signUpBtn.addEventListener("click",() => {
+                container.classList.add("right-panel-active");
+            })
+            signInBtn.addEventListener("click",() => {
+                container.classList.remove("right-panel-active");
+            })
+
+            let countDate = new Date('Feb 21, 2022 00:00:00').getTime();
+
+            function countDown(){
+
+            let now = new Date().getTime();
+	        gap = countDate - now;
+            let seconds = 1000;
+            let minutes = seconds * 60;
+            let hours = minutes * 60;
+            let days = hours * 24;
+
+            let d = Math.floor(gap / (days));
+	        let h = Math.floor((gap % (days)) / (hours));
+	        let m = Math.floor((gap % (hours)) / (minutes));
+	        let s = Math.floor((gap % (minutes)) / (seconds));
+            
+            document.getElementById('days').innerText = d;
+            document.getElementById('hours').innerText = h;
+            document.getElementById('minutes').innerText = m;
+            document.getElementById('seconds').innerText = s;
+        }
+            setInterval(function(){
+            countDown()
+        },1000);
+
+        </script>
+    </body>
+</html>
